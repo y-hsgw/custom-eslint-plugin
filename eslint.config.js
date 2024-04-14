@@ -7,6 +7,7 @@ export default [
     plugins: { example: eslintPluginExample },
     rules: {
       "example/no-literal": "error",
+      "example/no-let": "error",
     },
   },
 ];
