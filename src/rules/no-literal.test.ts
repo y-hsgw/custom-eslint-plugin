@@ -1,6 +1,6 @@
 import { RuleTester } from "eslint";
 
-import rule from "./no-literal";
+import rule from "./no-literal.cjs";
 
 const tester = new RuleTester();
 

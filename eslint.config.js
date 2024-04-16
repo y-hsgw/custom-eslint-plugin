@@ -1,4 +1,4 @@
-import eslintPluginExample from "./eslint-plugin-example.js";
+import eslintPluginExample from "./dist/index.cjs";
 
 /** @type { import("eslint").Linter.FlatConfig[] } */
 export default [

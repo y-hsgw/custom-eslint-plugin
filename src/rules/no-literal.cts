@@ -1,5 +1,6 @@
-/** @type { import("eslint").Rule.RuleModule } */
-const rule = {
+import { Rule } from "eslint";
+
+const rule: Rule.RuleModule = {
   create: (context) => {
     return {
       Literal: (node) => {
