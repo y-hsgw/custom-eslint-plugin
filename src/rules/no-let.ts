@@ -4,7 +4,6 @@ const rule: Rule.RuleModule = {
   create: (context) => {
     return {
       VariableDeclaration: (node) => {
-        console.log(node.kind);
         if (node.kind !== "let") return;
 
         context.report({
