@@ -4,10 +4,6 @@ import eslintPluginExample from "./dist/index.js";
 export default [
   {
     ignores: ["dist/**/*"],
-    plugins: { example: eslintPluginExample },
-    rules: {
-      "example/no-literal": "error",
-      "example/no-let": "error",
-    },
+    ...eslintPluginExample.configs.recommended,
   },
 ];
