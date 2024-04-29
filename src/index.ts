@@ -1,18 +1,15 @@
 import rules from "./rules/index.js";
 import { ESLint } from "eslint";
+import recommendedConfig from "./configs/recommended.js";
+
+const basePlugin: ESLint.Plugin = {
+  rules,
+};
 
 const plugin: ESLint.Plugin = {
-  rules,
+  ...basePlugin,
   configs: {
-    recommended: {
-      plugins: {
-        example: { rules },
-      },
-      name: "example/recommended",
-      rules: {
-        "example/no-literal": "error",
-      },
-    },
+    recommended: recommendedConfig(basePlugin),
   },
 };
 
