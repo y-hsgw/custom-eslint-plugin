@@ -1,11 +1,18 @@
-import { ESLint, Linter } from "eslint";
+import { Linter, Rule } from "eslint";
 
-export default (plugin: ESLint.Plugin): Linter.FlatConfig => ({
-  plugins: {
-    example: plugin,
-  },
-  name: "example/recommended",
-  rules: {
-    "example/no-literal": "error",
-  },
-});
+export default (rules: Record<string, Rule.RuleModule>): Linter.FlatConfig => {
+  const NAME = "example";
+  const filteredRules: Linter.RulesRecord = Object.fromEntries(
+    Object.entries(rules)
+      .filter(([key, value]) => value.meta?.docs?.recommended)
+      .map(([key, value]) => [`${NAME}/${key}`, "error"])
+  );
+
+  return {
+    plugins: {
+      [NAME]: { rules },
+    },
+    name: `${NAME}/recommended`,
+    rules: filteredRules,
+  };
+};
