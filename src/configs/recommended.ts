@@ -5,7 +5,10 @@ export default (rules: Record<string, Rule.RuleModule>): Linter.FlatConfig => {
   const filteredRules: Linter.RulesRecord = Object.fromEntries(
     Object.entries(rules)
       .filter(([key, value]) => value.meta?.docs?.recommended)
-      .map(([key, value]) => [`${NAME}/${key}`, "error"])
+      .map<[string, Linter.RuleEntry]>(([key, value]) => [
+        `${NAME}/${key}`,
+        "error",
+      ])
   );
 
   return {
