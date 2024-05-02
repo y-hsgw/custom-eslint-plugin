@@ -2,8 +2,8 @@ import { Rule } from "eslint";
 
 const rule: Rule.RuleModule = {
   meta: {
-    type: "problem",
-    fixable: "code",
+    type: "suggestion",
+    hasSuggestions: true,
   },
   create: (context) => {
     return {
@@ -13,15 +13,20 @@ const rule: Rule.RuleModule = {
         context.report({
           message: "そのlet大丈夫そう？",
           node,
-          fix: (fixer) => {
-            const firstToken = context.sourceCode.getFirstToken(
-              node,
-              (token) => token.value === "let"
-            );
-            if (!firstToken) throw new Error("firstToken not found.");
+          suggest: [
+            {
+              desc: "letをconstに変更します",
+              fix: (fixer) => {
+                const firstToken = context.sourceCode.getFirstToken(
+                  node,
+                  (token) => token.value === "let"
+                );
+                if (!firstToken) throw new Error("firstToken not found.");
 
-            return fixer.replaceText(firstToken, "const");
-          },
+                return fixer.replaceText(firstToken, "const");
+              },
+            },
+          ],
         });
       },
     };
