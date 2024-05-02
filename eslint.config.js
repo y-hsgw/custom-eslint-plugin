@@ -8,6 +8,7 @@ export default [
     rules: {
       ...eslintPluginExample.configs.recommended.rules,
       "example/no-let": "error",
+      "example/no-var": "error",
     },
   },
 ];
