@@ -9,6 +9,7 @@ export default [
       ...eslintPluginExample.configs.recommended.rules,
       "example/no-let": "error",
       "example/no-var": "error",
+      "example/require-await-in-promise": "error",
     },
   },
 ];
