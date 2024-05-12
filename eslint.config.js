@@ -3,6 +3,9 @@ import eslintPluginExample from "./dist/index.js";
 /** @type { import("eslint").Linter.FlatConfig[] } */
 export default [
   {
+    linterOptions: {
+      noInlineConfig: true,
+    },
     ignores: ["dist/**/*"],
     ...eslintPluginExample.configs.recommended,
     rules: {
