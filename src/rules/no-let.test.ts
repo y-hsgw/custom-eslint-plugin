@@ -1,10 +1,11 @@
 import { RuleTester } from "eslint";
 import dedent from "dedent";
 import rule from "./no-let";
+import { getTestName } from "../test/utils";
 
 const tester = new RuleTester();
 
-tester.run("no-let", rule, {
+tester.run(getTestName(), rule, {
   valid: [{ code: `const x = 1` }],
   invalid: [
     {

@@ -14,11 +14,11 @@ tester.run("no-var", rule, {
       `,
       errors: [
         {
-          message: "そのvar大丈夫そう？",
+          message: "そのvar大丈夫そう？🐈",
           line: 1,
         },
         {
-          message: "そのvar大丈夫そう？",
+          message: "そのvar大丈夫そう？🐈",
           line: 2,
         },
       ],

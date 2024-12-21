@@ -1,10 +1,11 @@
 import { RuleTester } from "eslint";
 
 import rule from "./no-literal";
+import { getTestName } from "../test/utils";
 
 const tester = new RuleTester();
 
-tester.run("no-literal", rule, {
+tester.run(getTestName(), rule, {
   valid: [
     { code: `let x;` },
     { code: "const x = undefined" },
