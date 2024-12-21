@@ -11,8 +11,11 @@ const rule: Rule.RuleModule = {
         if (node.kind !== "var") return;
 
         context.report({
-          message: "そのvar大丈夫そう？",
+          message: "そのvar大丈夫そう？{{sender}}",
           node,
+          data: {
+            sender: "🐈",
+          },
           fix: (fixer) => {
             const firstToken = context.sourceCode.getFirstToken(
               node,
