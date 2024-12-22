@@ -1,7 +1,7 @@
 import { RuleTester } from "eslint";
 
-import rule from "./no-literal";
-import { getTestName } from "../test/utils";
+import rule from "./no-literal.js";
+import { getTestName } from "../test/utils.js";
 
 const tester = new RuleTester();
 

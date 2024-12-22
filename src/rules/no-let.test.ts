@@ -1,7 +1,7 @@
 import { RuleTester } from "eslint";
 import dedent from "dedent";
-import rule from "./no-let";
-import { getTestName } from "../test/utils";
+import rule from "./no-let.js";
+import { getTestName } from "../test/utils.js";
 
 const tester = new RuleTester();
 

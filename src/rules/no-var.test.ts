@@ -1,6 +1,6 @@
 import { RuleTester } from "eslint";
 import dedent from "dedent";
-import rule from "./no-var";
+import rule from "./no-var.js";
 
 const tester = new RuleTester();
 

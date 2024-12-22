@@ -1,7 +1,7 @@
 import { RuleTester } from "eslint";
 import dedent from "dedent";
-import rule from "./require-await-in-promise";
-import { getTestName } from "../test/utils";
+import rule from "./require-await-in-promise.js";
+import { getTestName } from "../test/utils.js";
 
 const tester = new RuleTester();
 

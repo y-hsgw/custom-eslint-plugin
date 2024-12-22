@@ -1,14 +1,11 @@
 import { Linter, Rule } from "eslint";
 
-export default (rules: Record<string, Rule.RuleModule>): Linter.FlatConfig => {
+export default (rules: Record<string, Rule.RuleModule>): Linter.Config => {
   const NAME = "example";
   const filteredRules: Linter.RulesRecord = Object.fromEntries(
     Object.entries(rules)
-      .filter(([key, value]) => value.meta?.docs?.recommended)
-      .map<[string, Linter.RuleEntry]>(([key, value]) => [
-        `${NAME}/${key}`,
-        "error",
-      ])
+      .filter(([_, value]) => value.meta?.docs?.recommended)
+      .map<[string, Linter.RuleEntry]>(([key]) => [`${NAME}/${key}`, "error"])
   );
 
   return {

@@ -2,26 +2,43 @@
 
 import eslintPluginExample from "./dist/index.js";
 import globals from "globals";
+import tseslint from "typescript-eslint";
 
-/** @type { import("eslint").Linter.FlatConfig[] } */
-export default [
+export default tseslint.config(
+  tseslint.configs.recommendedTypeChecked,
   {
-    linterOptions: {
-      reportUnusedDisableDirectives: "error",
-    },
     languageOptions: {
-      globals: {
-        ...globals.browser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
-    ignores: ["dist/**/*"],
+  },
+  {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
     ...eslintPluginExample.configs.recommended,
     rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { args: "after-used", destructuredArrayIgnorePattern: "^_" },
+      ],
       ...eslintPluginExample.configs.recommended.rules,
       "no-console": "error",
       "example/no-let": "error",
       "example/no-var": "error",
-      "example/require-await-in-promise": "error",
+      // "example/require-await-in-promise": "error",
     },
   },
-];
+  {
+    ignores: ["dist/**/*"],
+  },
+  {
+    linterOptions: {
+      reportUnusedDisableDirectives: "error",
+    },
+  }
+);
