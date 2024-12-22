@@ -1,5 +1,6 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
-const config = {
+import { JestConfigWithTsJest } from "ts-jest";
+
+const config: JestConfigWithTsJest = {
   preset: "ts-jest",
   moduleNameMapper: {
     "(.+)\\.js": "$1",
